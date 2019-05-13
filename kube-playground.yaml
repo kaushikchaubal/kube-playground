@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kube-playground
+  labels:
+    run: kube-playground
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    run: kube-playground
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-playground
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: kube-playground
+  template:
+    metadata:
+      labels:
+        run: kube-playground
+    spec:
+      containers:
+      - name: kube-playground
+        image: kaushikchaubal/kube-playground:latest
+        ports:
+        - containerPort: 8080
