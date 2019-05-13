@@ -94,6 +94,41 @@ chmod 755 build-and-deploy.sh
 ./build-and-deploy.sh
 ```
 
+## Section B: Introducing Helm
+
+1. Install and init Tiller
+
+Run the following commands
+
+```
+brew install kubernetes-helm
+helm init
+```
+
+2. Create a Helm application
+
+Run the following command
+
+```
+helm create kube-playground
+```
+
+3. Update values.yaml, deployment.yaml and service.yaml as necessary
+
+4. Install the chart
+
+Run the following command
+
+```
+helm install kube-playground
+```
+
+**Note**: If you want to see the created YAMLs, use the following command:
+
+```
+helm install --debug --dry-run kube-playground
+```
+
 
 
 
