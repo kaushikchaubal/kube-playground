@@ -129,6 +129,24 @@ helm install kube-playground
 helm install --debug --dry-run kube-playground
 ```
 
+## Section C: Introducing Dashboard
 
+1. Setup the Dashboard
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.1/src/deploy/recommended/kubernetes-dashboard.yaml
+kubectl proxy
+http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/
+```
+
+2. Getting the token
+
+Run the following commands
+
+```
+kubectl -n kube-system get secret
+kubectl -n kube-system describe secrets service-controller-token-qt4c9  
+Copy-paste token
+```
 
 
