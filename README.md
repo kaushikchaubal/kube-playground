@@ -129,6 +129,12 @@ helm install kube-playground
 helm install --debug --dry-run kube-playground
 ```
 
+**Note**: If you want to delete all the services that you created, use the following command:
+
+```
+helm ls --all --short | xargs -L1 helm delete --purge
+```
+
 ## Section C: Introducing Dashboard
 
 1. Setup the Dashboard
